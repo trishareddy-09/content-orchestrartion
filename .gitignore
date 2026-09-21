@@ -1,0 +1,58 @@
+# =============================================================================
+# Generic Editor, OS, and Secret Files
+# =============================================================================
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.vscode/
+.idea/
+*.iml
+*.swp
+*.swo
+*.sublime-project
+*.sublime-workspace
+.project
+.classpath
+.settings/
+
+# Sensitive environment variables and credentials
+# IMPORTANT: Never commit secret keys!
+.env
+.env.*
+.flaskenv
+
+# =============================================================================
+# Python / Backend Specific
+# =============================================================================
+# Virtual environments (common locations relative to project root)
+/backend/venv/
+/backend/.venv/
+/backend/env/
+/backend/.Python/
+venv/                  # Covers cases where venv might be at project root
+.venv/                 # Covers cases where .venv might be at project root
+env/                   # Covers cases where env might be at project root
+
+# Bytecode and compiled files
+/backend/__pycache__/
+/backend/*.pyc
+/backend/*.pyo
+/backend/*.pyd
+
+
+
+
+
+# =============================================================================
+# Node / Frontend Specific
+# =============================================================================
+# Dependencies
+/frontend/node_modules/
+node_modules/ # Covers cases where node_modules might be at project root
+/frontend/env
+
+
+
+/backend/my-credentials.json

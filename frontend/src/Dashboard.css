@@ -1,0 +1,408 @@
+/* frontend/src/Dashboard.css */
+
+/* --- Main Page Container --- */
+.dashboard-page {
+    background-color: #1a1a1a; /* Dark background */
+    min-height: 100vh; /* Ensure it takes full viewport height */
+    padding: 1rem; /* Slightly reduced padding to save vertical space */
+    font-family: 'Inter', sans-serif; /* Modern, clean font */
+    color: #e5e7eb; /* Light text for contrast */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+    display: flex; /* Use flexbox for main content */
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center horizontally */
+}
+
+/* --- Header Section (Welcome message and Logout) --- */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* Take full width of parent */
+    max-width: 60rem; /* 960px */
+    margin: 0 auto 1.5rem auto; /* Center the header with reduced bottom margin */
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #374151; /* Subtle divider */
+}
+
+.welcome-message {
+    font-size: 1.5rem; /* 24px */
+    font-weight: 600;
+}
+
+.welcome-message span {
+    color: #a78bfa; /* A nice violet color for emphasis */
+}
+
+.logout-button {
+    background-color: #dc2626; /* Red for logout, stands out */
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border: none;
+    border-radius: 0.375rem; /* Slightly rounded corners */
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out; /* Smooth hover effect */
+}
+
+.logout-button:hover {
+    background-color: #b91c1c; /* Darker red on hover */
+}
+
+/* --- Main Content Area --- */
+main {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 38rem; /* Set a max-width for the content containers */
+    flex-grow: 1; /* Allow main to grow and fill available space */
+    justify-content: center; /* Vertically center content if there's extra space */
+    align-items: center; /* Horizontally center content */
+    padding-top: 0.5rem; /* Small top padding */
+    padding-bottom: 0.5rem; /* Small bottom padding */
+    gap: 4rem; /* Increased gap between search and upload containers */
+}
+
+
+/* --- Main Upload Container --- */
+.upload-container {
+    background-color: #2d2d2d; /* Slightly lighter dark background for cards */
+    width: 100%; /* Take full width of its parent (main) */
+    padding: 2rem; /* Reduced padding */
+    border-radius: 0.75rem; /* Rounded corners for the card */
+    text-align: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Adjusted shadow */
+    border: 1px solid #374151; /* Light border for definition */
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+.upload-container h3 {
+    font-size: 1.7rem; /* Slightly smaller heading */
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    color: #fff; /* White heading */
+}
+
+.upload-container p {
+    color: #9ca3af; /* Muted text for descriptions */
+    margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+/* --- Dashed File Dropzone --- */
+.file-dropzone {
+    border: 2px dashed #4b5563; /* Dashed border for visual cue */
+    border-radius: 0.5rem;
+    padding: 2.5rem 1rem; /* Slightly reduced padding */
+    cursor: pointer;
+    transition: border-color 0.2s, background-color 0.2s; /* Smooth transitions */
+    margin-bottom: 1rem; /* Reduced margin */
+    position: relative; /* Needed for the input to fill it */
+    background-color: #3a3a3a; /* Darker background for dropzone */
+}
+
+.file-dropzone:hover {
+    border-color: #60a5fa; /* Blue border on hover */
+    background-color: #4a4a4a; /* Slightly lighter background on hover */
+}
+
+.file-dropzone-text {
+    color: #9ca3af;
+    font-weight: 500;
+    display: block; /* Ensure text is block level for centering */
+}
+
+/* Hide the default file input, but make its clickable area cover the dropzone */
+.file-input-hidden {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0; /* Fully transparent */
+    cursor: pointer;
+}
+
+/* --- Upload Button and Status Messages --- */
+.upload-button {
+    width: 100%;
+    background-color: #2563eb; /* Blue primary button */
+    color: white;
+    font-weight: 700;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 0.375rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Button shadow */
+}
+
+.upload-button:disabled {
+    background-color: #4b5563; /* Muted background for disabled */
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.upload-button:not(:disabled):hover {
+    background-color: #1d4ed8; /* Darker blue on hover */
+}
+
+.upload-message {
+    margin-top: 1rem;
+    font-weight: 500;
+    padding: 0.75rem 1rem; /* Added padding */
+    border-radius: 0.375rem; /* Added border-radius */
+    transition: all 0.3s ease; /* Smooth transition for message appearance */
+}
+
+.upload-message.success {
+    color: #34d399; /* Green success */
+    background-color: rgba(52, 211, 153, 0.1); /* Light green background */
+    border: 1px solid #34d399;
+}
+
+.upload-message.error {
+    color: #f87171; /* Red error */
+    background-color: rgba(248, 113, 113, 0.1); /* Light red background */
+    border: 1px solid #f87171;
+}
+
+/* --- Detected Category Text --- */
+.detected-category {
+    font-size: 0.875rem; /* 14px */
+    color: #9ca3af;
+    margin-bottom: 1rem;
+}
+
+.detected-category span {
+    font-weight: 600;
+    color: #e5e7eb;
+    text-transform: capitalize; /* Capitalize the category name */
+}
+
+/* --- Search Section Styles --- */
+.search-container {
+    background-color: #2d2d2d;
+    width: 100%; /* Take full width of its parent (main) */
+    padding: 2rem; /* Reduced padding for consistency */
+    border-radius: 0.75rem;
+    text-align: center;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* Adjusted shadow */
+    border: 1px solid #374151; /* Light border for definition */
+    box-sizing: border-box; /* Include padding and border in element's total width/height */
+}
+
+.search-container h3 {
+    color: #fff;
+    margin-bottom: 1.5rem; /* Reduced margin */
+    font-size: 1.7rem; /* Consistent heading size */
+    font-weight: 700;
+}
+
+.search-input-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* Space between input and button */
+    margin-bottom: 1.5rem; /* Reduced margin */
+}
+
+.search-input {
+    flex-grow: 1; /* Allows input to take available space */
+    padding: 10px 15px;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #444; /* Darker input background */
+    color: #eee; /* Light text color */
+    font-size: 16px;
+    outline: none; /* Remove default outline */
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3); /* Inner shadow for depth */
+}
+
+.search-input::placeholder {
+    color: #aaa; /* Lighter placeholder text */
+}
+
+.search-button {
+    background-color: #007bff; /* Blue for search button */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.search-button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.search-button:disabled {
+    background-color: #666;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.search-message {
+    font-size: 14px;
+    margin-top: 1rem; /* Reduced margin */
+    padding: 10px;
+    border-radius: 5px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.search-message.error {
+    color: #ff6b6b; /* Red error */
+    background-color: #4a1c1c;
+    border: 1px solid #ff6b6b;
+}
+
+.search-message.success {
+    color: #6bff93; /* Green success */
+    background-color: #1c4a2c;
+    border: 1px solid #6bff93;
+}
+
+/* NEW: Styles for displaying multiple search results */
+.search-results-list {
+    margin-top: 1.5rem;
+    padding: 15px;
+    background-color: #3a3a3a;
+    border-radius: 8px;
+    border: 1px dashed #777;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+    text-align: left; /* Align content inside results to left */
+}
+
+.search-results-list h4 {
+    color: #fff;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    text-align: center; /* Center the "Found Files" heading */
+}
+
+.search-result-item {
+    background-color: #2d2d2d; /* Slightly different background for individual items */
+    border: 1px solid #4a4a4a;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 10px; /* Space between items */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center content within each item */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.search-result-item:last-child {
+    margin-bottom: 0; /* No margin after the last item */
+}
+
+.search-result-item h5 {
+    color: #c9c9c9;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/* Styles for different media types (renamed for general item preview) */
+.searched-item-preview {
+    max-width: 100%;
+    max-height: 200px; /* Constrain max height for images/videos/audios */
+    width: auto; /* Allow width to adjust based on height */
+    object-fit: contain; /* Ensures the content is fully visible without cropping */
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* More prominent shadow for previews */
+    display: block;
+    margin: 0.5rem auto; /* Reduced margin */
+    background-color: #000; /* Ensures video/audio players are visible */
+}
+
+/* OLD search-result-display is now the container for the list (search-results-list) */
+/* .search-result-display { ... (This style block is effectively replaced by .search-results-list) } */
+
+
+/* Existing styles below, modified where necessary for consistency */
+
+.download-link {
+    display: inline-block;
+    background-color: #28a745; /* Green color for download link */
+    color: white;
+    padding: 8px 15px; /* Reduced padding */
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Added transform for subtle animation */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 10px; /* Added margin-top for separation */
+}
+
+.download-link:hover {
+    background-color: #218838;
+    transform: translateY(-2px); /* Slight lift on hover */
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .dashboard-page {
+        padding: 0.5rem; /* Even less padding on small screens */
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1rem; /* Reduced margin */
+    }
+
+    .welcome-message {
+        margin-bottom: 0.75rem; /* Reduced margin */
+    }
+
+    main {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+        gap: 2rem; /* Adjust gap for smaller screens */
+    }
+
+    .upload-container,
+    .search-container {
+        padding: 1rem; /* Even less padding on small screens */
+        margin: 0.5rem auto; /* Minimal margin */
+    }
+
+    .search-input-group {
+        flex-direction: column;
+        gap: 10px; /* Smaller gap */
+    }
+
+    .search-input,
+    .search-button {
+        width: 100%; /* Full width for input and button */
+    }
+
+    .searched-item-preview {
+        max-height: 120px; /* Further constrain height on very small screens */
+    }
+}
+
+@media (max-height: 800px) { /* Adjust for shorter screens (e.g., laptops) */
+    .dashboard-page {
+        padding: 0.75rem;
+    }
+    main {
+        gap: 2rem; /* Adjust gap for shorter screens */
+    }
+    .upload-container,
+    .search-container {
+        padding: 1.5rem;
+    }
+    .search-results-list, /* Updated from search-result-display */
+    .file-dropzone {
+        padding: 1rem;
+    }
+    .searched-item-preview {
+        max-height: 180px; /* Adjust image/video max height */
+    }
+}
