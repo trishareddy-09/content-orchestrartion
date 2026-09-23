@@ -39,8 +39,7 @@ app.config['GEMINI_API_KEY'] = os.getenv('GEMINI_API_KEY')
 CORS(app, resources={r"/*": {"origins": os.getenv('REACT_APP_FRONTEND_URL', 'http://localhost:3000')}}, supports_credentials=True)
 
 # --- Define the path to your service account key file ---
-CREDENTIALS_FILE_PATH = r'C:\Users\ravee\OneDrive\Desktop\content-orchestration\backend\my-credentials.json'
-
+CREDENTIALS_FILE_PATH = os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 # --- Load credentials once to use for all clients ---
 try:
     if not os.path.exists(CREDENTIALS_FILE_PATH):
