@@ -1,5 +1,6 @@
 Flask
 Flask-Login
+Flask-JWT-Extended
 google-auth
 google-cloud-storage
 firebase-admin
